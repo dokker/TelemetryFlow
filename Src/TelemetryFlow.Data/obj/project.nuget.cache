@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "M9nwx9NzB6riZmGl3qMoc8L6s6DuM27jLqsJ4t/3DavKxkejjhWrh7DdSzWMMtCbNMVMfaGSkzgv/nJTo8Fx4A==",
+  "success": true,
+  "projectFilePath": "/home/docker/Projects/dotnet/TelemetryFlow/Src/TelemetryFlow.Data/TelemetryFlow.Data.csproj",
+  "expectedPackageFiles": [
+    "/home/docker/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.1/microsoft.aspnetcore.app.ref.8.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
