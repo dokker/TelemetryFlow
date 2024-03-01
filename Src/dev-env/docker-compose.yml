@@ -4,14 +4,14 @@ services:
   mssql:
     container_name: mssql_server
     image: mcr.microsoft.com/mssql/server:2022-latest
-    restart: always
+    restart: unless-stopped
     environment:
       ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "DevPass!Word"
+      MSSQL_SA_PASSWORD: ${MSSQL_SA_PASSWORD}
     ports:
       - 1433:1433
     volumes:
-      - ./data/mssql:/var/opt/mssql
+      - ./data/mssql/data:/var/opt/mssql
   
   mosquitto:
     container_name: mosquitto_broker
@@ -24,3 +24,61 @@ services:
       - ./data/mosquitto/config:/mosquitto/config
       - ./data/mosquitto/data:/mosquitto/data
       - ./data/mosquitto/log:/mosquitto/log
+  
+  opcplc1:
+    container_name: opcplc1
+    image: mcr.microsoft.com/iotedge/opc-plc:latest
+    restart: unless-stopped
+    ports:
+      - 50001:50000
+    command: >
+      --pn=50000
+      --sph
+      --sn=5
+      --sr=10
+      --st=uint
+      --fn=5
+      --fr=1
+      --ft=uint
+      -v
+
+  opcplc2:
+    container_name: opcplc2
+    image: mcr.microsoft.com/iotedge/opc-plc:latest
+    restart: unless-stopped
+    ports:
+      - 50002:50000
+    command: >
+      --pn=50000
+      --sph
+      --sn=5
+      --sr=10
+      --st=uint
+      --fn=5
+      --fr=1
+      --ft=uint
+      -v
+
+  opcplc3:
+    container_name: opcplc3
+    image: mcr.microsoft.com/iotedge/opc-plc:latest
+    restart: unless-stopped
+    ports:
+      - 50003:50000
+    command: >
+      --pn=50000
+      --sph
+      --sn=5
+      --sr=10
+      --st=uint
+      --fn=5
+      --fr=1
+      --ft=uint
+      -v
+      
+  opcpublisher1:
+    container_name: opcpublisher1
+    image: mcr.microsoft.com/iotedge/opc-publisher:latest
+    restart: unless-stopped
+    ports:
+      - 8080:8080
