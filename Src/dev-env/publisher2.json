@@ -1,0 +1,32 @@
+{
+    "EndpointUrl": "opc.tcp://opcplc3:50000",
+    "UseSecurity": true,
+    "OpcNodes": [
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=6211" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/Boiler;i=15013" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=StepUp" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=AlternatingBoolean" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=RandomSignedInt32" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=RandomUnsignedInt32" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;g=51b74e55-f2e3-4a4d-b79c-bf57c76ea67c" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=DipData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt1" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt2" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt3" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt4" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=FastUInt5" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadFastUInt1" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=NegativeTrendData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;b=YWJj" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=PositiveTrendData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt1", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt2", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt3", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt4", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SlowUInt5", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=BadSlowUInt1", "OpcPublishingInterval": 10000 },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=Special_\u0022!\u00A7$%\u0026/()=?\u0060\u00B4\\\u002B~*\u0027#_-:.;,\u003C\u003E|@^\u00B0\u20AC\u00B5{[]}" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=SpikeData" },
+      { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=VeryFast1kB1" }
+    ]
+  }

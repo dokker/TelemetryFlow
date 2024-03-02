@@ -2,7 +2,6 @@ version: '0.1'
 
 services:
   mssql:
-    container_name: mssql_server
     image: mcr.microsoft.com/mssql/server:2022-latest
     restart: unless-stopped
     environment:
@@ -14,7 +13,6 @@ services:
       - ./data/mssql/data:/var/opt/mssql
   
   mosquitto:
-    container_name: mosquitto_broker
     image: eclipse-mosquitto:latest
     restart: unless-stopped
     ports:
@@ -26,12 +24,16 @@ services:
       - ./data/mosquitto/log:/mosquitto/log
   
   opcplc1:
-    container_name: opcplc1
     image: mcr.microsoft.com/iotedge/opc-plc:latest
     restart: unless-stopped
+    hostname: opcplc1
     ports:
       - 50001:50000
+      - 8081:8080
     command: >
+      --aa
+      --to
+      --ph=opcplc1
       --pn=50000
       --sph
       --sn=5
@@ -43,12 +45,16 @@ services:
       -v
 
   opcplc2:
-    container_name: opcplc2
     image: mcr.microsoft.com/iotedge/opc-plc:latest
     restart: unless-stopped
+    hostname: opcplc2
     ports:
       - 50002:50000
+      - 8082:8080
     command: >
+      --aa
+      --to
+      --ph=opcplc2
       --pn=50000
       --sph
       --sn=5
@@ -60,12 +66,16 @@ services:
       -v
 
   opcplc3:
-    container_name: opcplc3
     image: mcr.microsoft.com/iotedge/opc-plc:latest
     restart: unless-stopped
+    hostname: opcplc3
     ports:
       - 50003:50000
+      - 8083:8080
     command: >
+      --aa
+      --to
+      --ph=opcplc3
       --pn=50000
       --sph
       --sn=5
@@ -77,8 +87,43 @@ services:
       -v
       
   opcpublisher1:
-    container_name: opcpublisher1
-    image: mcr.microsoft.com/iotedge/opc-publisher:latest
+    image: mcr.microsoft.com/iotedge/opc-publisher:2.9.4
     restart: unless-stopped
-    ports:
-      - 8080:8080
+    command: -t=Mqtt
+    environment:
+      - MqttClientConnectionString=HostName=mosquitto;Port=1883;UseTls=False;Protocol=v5;NumberOfClientPartitions=1
+      - PublishedNodesFile=/appdata/publisher.json
+      - AutoAcceptUntrustedCertificates=True
+      - MessagingMode=PubSub
+      - MessageEncoding=Json
+      - DefaultTransport=Mqtt
+      - RootTopicTemplate=publisher1
+      - MqttClientId=publisher1
+      - BatchSize=1
+      - BatchTriggerInterval=1
+      - MqttProtocolVersion=v5
+      - MqttBrokerUsesTls=False
+    volumes:
+      - ./publisher1.json:/appdata/publisher.json
+
+  opcpublisher2:
+    image: mcr.microsoft.com/iotedge/opc-publisher:2.9.4
+    restart: unless-stopped
+    command: -t=Mqtt
+    environment:
+      - MqttClientConnectionString=HostName=mosquitto;Port=1883;UseTls=False;Protocol=v5;NumberOfClientPartitions=1
+      - PublishedNodesFile=/appdata/publisher.json
+      - AutoAcceptUntrustedCertificates=True
+      - MessagingMode=PubSub
+      - MessageEncoding=Json
+      - DefaultTransport=Mqtt
+      - RootTopicTemplate=publisher2
+      - MqttClientId=publisher2
+      - BatchSize=1
+      - BatchTriggerInterval=1
+      - MqttProtocolVersion=v5
+      - MqttBrokerUsesTls=False
+    volumes:
+      - ./publisher2.json:/appdata/publisher.json
+
+
