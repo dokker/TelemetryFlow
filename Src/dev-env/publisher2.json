@@ -1,4 +1,5 @@
-{
+[
+  {
     "EndpointUrl": "opc.tcp://opcplc3:50000",
     "UseSecurity": true,
     "OpcNodes": [
@@ -30,3 +31,4 @@
       { "Id": "nsu=http://microsoft.com/Opc/OpcPlc/;s=VeryFast1kB1" }
     ]
   }
+]
