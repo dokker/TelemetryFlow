@@ -79,8 +79,6 @@ https://hub.docker.com/_/microsoft-mssql-server
 ```
 host: localhost
 user: SA
-pass: DevPass!Word
+pass: {provided in Src/dev-env/.env MSSQL_SA_PASSWORD}
 ```
-
-
 
