@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelemetryFlow.Model", "TelemetryFlow.Model\TelemetryFlow.Model.csproj", "{D33C0926-16DD-4C6C-AF52-3BAFFB93BE62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelemetryFlow.Models", "TelemetryFlow.Models\TelemetryFlow.Models.csproj", "{D33C0926-16DD-4C6C-AF52-3BAFFB93BE62}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelemetryFlow.Data", "TelemetryFlow.Data\TelemetryFlow.Data.csproj", "{8540086F-36DF-438A-9259-635C128C3C55}"
 EndProject
