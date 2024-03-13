@@ -8,10 +8,19 @@ public class OpcServerConfigurator : IEntityTypeConfiguration<OpcServer>
 {
     public void Configure(EntityTypeBuilder<OpcServer> builder)
     {
-        builder.ToTable(nameof(OpcPublisher));
+        builder.ToTable(nameof(OpcServer));
         builder.HasKey(x => x.Id);
-        builder.HasOne<OpcPublisher>(x => x.Publisher);
-        builder.HasMany<OpcNode>(x => x.Nodes);
-        builder.HasMany<OpcServerEndpoint>(x => x.Endpoints);
+        builder.HasOne<OpcPublisher>(x => x.Publisher)
+            .WithOne(x => x.Server)
+            .HasForeignKey<OpcPublisher>(x => x.ServerId)
+            .IsRequired();
+        builder.HasMany<OpcNode>(x => x.Nodes)
+            .WithOne(x => x.Server)
+            .HasForeignKey(x => x.ServerId)
+            .IsRequired();
+        builder.HasMany<OpcServerEndpoint>(x => x.Endpoints)
+            .WithOne(x => x.Server)
+            .HasForeignKey(x => x.ServerId)
+            .IsRequired();
     }
 }

@@ -10,8 +10,12 @@ public class OpcNodeConfigurator : IEntityTypeConfiguration<OpcNode>
     {
         builder.ToTable(nameof(OpcNode));
         builder.HasKey(x => x.Id);
-        builder.HasMany<OpcNodeGroup>(x => x.Groups);
-        builder.HasMany<OpcNodeTag>(x => x.Tags);
-        builder.HasMany<OpcNodeProperty>(x => x.Properties);
+        // builder.HasOne<OpcServer>(x => x.Server);
+        builder.HasMany<OpcNodeGroup>(x => x.Groups)
+            .WithMany(x => x.Nodes);
+        builder.HasMany<OpcNodeTag>(x => x.Tags)
+            .WithMany(x => x.Nodes);
+        builder.HasMany<OpcNodeProperty>(x => x.Properties)
+            .WithMany(x => x.Nodes);
     }
 }

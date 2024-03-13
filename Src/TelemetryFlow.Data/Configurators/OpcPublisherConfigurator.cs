@@ -10,6 +10,6 @@ public class OpcPublisherConfigurator : IEntityTypeConfiguration<OpcPublisher>
     {
         builder.ToTable(nameof(OpcPublisher));
         builder.HasKey(x => x.Id);
-        builder.HasOne<OpcServer>(x => x.Server);
+        // builder.HasOne<OpcServer>(x => x.Server);
     }
 }

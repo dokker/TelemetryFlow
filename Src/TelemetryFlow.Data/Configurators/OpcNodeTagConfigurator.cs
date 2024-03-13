@@ -10,6 +10,6 @@ public class OpcNodeTagConfigurator : IEntityTypeConfiguration<OpcNodeTag>
     {
         builder.ToTable(nameof(OpcNodeTag));
         builder.HasKey(x => x.Id);
-        builder.HasMany<OpcNode>(x => x.Nodes);
+        //builder.HasMany<OpcNode>(x => x.Nodes);
     }
 }

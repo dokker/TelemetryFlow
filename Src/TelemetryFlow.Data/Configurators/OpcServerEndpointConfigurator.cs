@@ -8,8 +8,8 @@ public class OpcServerEndpointConfigurator : IEntityTypeConfiguration<OpcServerE
 {
     public void Configure(EntityTypeBuilder<OpcServerEndpoint> builder)
     {
-        builder.ToTable(nameof(OpcPublisher));
+        builder.ToTable(nameof(OpcServerEndpoint));
         builder.HasKey(x => x.Id);
-        builder.HasOne<OpcServer>(x => x.Server);
+        // builder.HasOne<OpcServer>(x => x.Server);
     }
 }

@@ -10,6 +10,6 @@ public class OpcNodePropertyConfigurator : IEntityTypeConfiguration<OpcNodePrope
     {
         builder.ToTable(nameof(OpcNodeProperty));
         builder.HasKey(x => x.Id);
-        builder.HasMany<OpcNode>(x => x.Nodes);
+        //builder.HasMany<OpcNode>(x => x.Nodes);
     }
 }
