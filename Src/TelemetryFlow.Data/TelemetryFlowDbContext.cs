@@ -18,7 +18,7 @@ public class TelemetryFlowDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(new SqlConnection());
+        optionsBuilder.UseSqlServer(new SqlConnection("Server=localhost\\mssql,1433;Database=TelemetryFlow;User Id=sa;Password=DevPass!Word;Encrypt=Yes;TrustServerCertificate=Yes"));
         base.OnConfiguring(optionsBuilder);
     }
 
