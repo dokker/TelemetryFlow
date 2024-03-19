@@ -11,6 +11,8 @@
 _UpgradeReport_Files/
 [Pp]ackages/
 
+.env
+
 Thumbs.db
 Desktop.ini
 .DS_Store
