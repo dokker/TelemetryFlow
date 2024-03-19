@@ -1,6 +1,19 @@
 @TelemetryFlow.ManagerApi_HostAddress = http://localhost:5287
 
+
+POST {{TelemetryFlow.ManagerApi_HostAddress}}/api/OpcServer
+Content-Type: application/json
+
+{
+  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "name": "firstname"
+}
+
+###
+
+
 GET {{TelemetryFlow.ManagerApi_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###
+
