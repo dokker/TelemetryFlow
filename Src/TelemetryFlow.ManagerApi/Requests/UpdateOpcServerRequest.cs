@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace TelemetryFlow.ManagerApi.Requests;
 
-public class CreateOpcServerRequest
+public class UpdateOpcServerRequest
 {
     [Required]
     public Guid Id { get; set; }
