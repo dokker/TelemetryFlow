@@ -19,4 +19,9 @@
       </Content>
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\TelemetryFlow.Data\TelemetryFlow.Data.csproj" />
+      <ProjectReference Include="..\TelemetryFlow.Models\TelemetryFlow.Models.csproj" />
+    </ItemGroup>
+
 </Project>
