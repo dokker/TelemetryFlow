@@ -16,12 +16,11 @@ public class TelemetryFlowDbContext : DbContext
     public DbSet<OpcServer> OpcServers { get; set; }
     public DbSet<OpcServerEndpoint> OpcServerEndpoints { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    // : calls base class constructor (only at ctor)
+    public TelemetryFlowDbContext(DbContextOptions options) : base(options)
     {
-        optionsBuilder.UseSqlServer(new SqlConnection("Server=localhost\\mssql,1433;Database=TelemetryFlow;User Id=sa;Password=DevPass!Word;Encrypt=Yes;TrustServerCertificate=Yes"));
-        base.OnConfiguring(optionsBuilder);
     }
-
+    
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.HasDefaultSchema("opc");

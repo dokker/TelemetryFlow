@@ -5,15 +5,31 @@ POST {{TelemetryFlow.ManagerApi_HostAddress}}/api/OpcServer
 Content-Type: application/json
 
 {
-  "id": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
-  "name": "firstname"
+  "name": "Server1",
+  "address": "Address1"
 }
 
 ###
+@id = 9b2d83a1-a15b-43f9-0c48-08dc491a8c9e
 
-
-GET {{TelemetryFlow.ManagerApi_HostAddress}}/weatherforecast/
+GET {{TelemetryFlow.ManagerApi_HostAddress}}/api/OpcServer/{{id}}/
 Accept: application/json
 
 ###
 
+@id2 = a9f2af6f-ed25-457e-fd57-08dc4a6679b3
+
+DELETE {{TelemetryFlow.ManagerApi_HostAddress}}/api/OpcServer/{{id2}}/
+Accept: application/json
+
+###
+
+PUT {{TelemetryFlow.ManagerApi_HostAddress}}/api/OpcServer/
+Accept: application/json
+
+{
+  "id": "d30aab30-02a4-4f87-fd56-08dc4a6679b3",
+  "name": "Server2",
+  "address": "Address2"
+}
+###
